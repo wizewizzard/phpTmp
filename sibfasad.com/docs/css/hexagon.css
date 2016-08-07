@@ -1,0 +1,165 @@
+.even {
+    margin-top: -36px;
+}
+.odd {
+    margin-left: 67px;
+    margin-top: -36px;
+}
+.hexagon {
+    position: relative;
+    display: inline-block;
+    width: 133px; 
+    height: 76.79px;
+    margin: 38.39px 0;
+    margin-left: 1px;
+    background-size: auto 153.5752px;
+    background-position: center;
+    font-weight: 100;
+    font-size: 12px;
+}
+    .hexagon.partner {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #fff;
+    }
+        .hexagon.partner .hexTop::after,
+        .hexagon.partner .hexBottom::after,
+        .hexagon.partner .hexTop::after,
+        .hexagon.partner .hexBottom::after {
+            background: #fff;
+        }
+    .hexagon span {
+        font-weight: 400;
+        text-align: center;
+        display: block;
+        padding-bottom: 5px;
+    }
+    .hexagon h3 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .hexagon .hexTop,
+    .hexagon .hexBottom {
+        position: absolute;
+        z-index: 1;
+        width: 94.05px;
+        height: 94.05px;
+        overflow: hidden;
+        -webkit-transform: scaleY(0.5774) rotate(-45deg);
+        -ms-transform: scaleY(0.5774) rotate(-45deg);
+        transform: scaleY(0.5774) rotate(-45deg);
+        background: inherit;
+        left: 19.48px;
+    }
+
+    /*counter transform the bg image on the caps*/
+        .hexagon .hexTop:after,
+        .hexagon .hexBottom:after {
+            content: "";
+            position: absolute;
+            width: 133.0000px;
+            height: 76.78758580222024px;
+            -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+            -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+            transform:          rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            background: inherit;
+        }
+
+    .hexagon .hexTop {
+        top: -47.0226px;
+    }
+
+        .hexagon .hexTop:after {
+            background-position: center top;
+        }
+
+    .hexagon .hexBottom {
+        bottom: -47.0226px;
+    }
+
+        .hexagon .hexBottom:after {
+            background-position: center bottom;
+        }
+
+    .hexagon:after {
+        content: "";
+        position: absolute;
+        top: 0.0000px;
+        left: 0;
+        width: 133.0000px;
+        height: 76.7876px;
+        z-index: 2;
+        background: inherit;
+    }
+.hexagon.photo {
+    /*background: #8dc63f;*/
+    background-image: url(http://csshexagon.com/img/meow.jpg);
+
+}
+.hexagon.emerald {
+    background: #57a152;
+}
+.hexagon.lightgreen {
+    background: #8dc63f;
+}
+.hexagon.gray {
+    background: #777;
+}
+.hexagon.spacer {
+    opacity: 0
+}
+a.hexagon:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, .9);
+}
+    a.hexagon:hover .hexTop,
+    a.hexagon:hover .hexBottom {
+        box-shadow: 0 0 20px rgba(0, 0, 0, .9);
+    }
+.hexagon:hover .hexContent {
+    opacity: 1;
+}
+    .hexContent {
+        position: absolute;
+        z-index: 3;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        padding: 0 2px;
+        color: #fff;
+        background: rgba(0, 0, 0, .4);
+        opacity: 0;
+        transition: .1s linear;
+    }
+        .hexContent:before,
+        .hexContent:after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            border-style: solid;
+            border-color: transparent;
+            border-left-width: 66px;
+            border-right-width: 66px;
+            left: 0;
+        }
+        .hexContent:before {
+            border-top-width: 0;
+            top: -38px;
+            border-bottom-width: 38px;
+            border-bottom-color: rgba(0, 0, 0, .4);
+        }
+        .hexContent:after {
+            border-bottom-width: 0;
+            bottom: -38px;
+            border-top-width: 38px;
+            border-top-color: rgba(0, 0, 0, .4);
+        }

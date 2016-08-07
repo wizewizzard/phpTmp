@@ -1,0 +1,20 @@
+# vendor dir
+/vendor
+# upload dir
+/upload
+# uploads dir
+/uploads
+# smarty dir
+/smarty
+# templates_c dir
+/templates_c
+#images dir
+/images
+#galleria dir
+/galleria
+#thumbs dir
+/thumbs
+#tinymce dir
+/tinymce
+#filemanager dir
+/filemanager

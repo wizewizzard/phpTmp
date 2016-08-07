@@ -1,0 +1,29 @@
+.object {
+    position: relative;
+    border-top: 1px solid #99cc53;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding-top: 45px;
+}
+    .objectDescription {
+        position: relative;
+        font-size: 14px;
+        color: #000;
+        text-align: justify;
+        top: 0;
+        left: 0;
+        padding-right: 30px;
+        padding-left: 200px;
+    }
+    .object .signature {
+        display: block;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-style: italic;
+    }
+    .object .readMore {
+        display: block;
+        text-align: right;
+        margin-top: 30px;
+        color: #6c8fe1;
+    }

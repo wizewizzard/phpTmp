@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<head>
+    <title>Сибирские фасады</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,100,100italic,300,300italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+<style>
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+body, input {
+    background: url('/images/background.png');
+    font-family: 'Roboto', sans-serif;
+    font-size: 0;
+}
+
+.inner {
+    width: 940px;
+    margin: 0 auto;
+}
+    header {
+        position: relative;
+        overflow: hidden;
+    }
+        header:after {
+            position: absolute;
+            content: '';
+
+            width: 100%;
+            height: 39px;
+
+            border: 3px solid #99cc53;
+            border-left: transparent;
+            border-right: transparent;
+
+            top: 58px;
+            left:50%;
+
+            margin-left:470px;
+        }
+        header .head-content {
+            position: relative;
+        }
+            header .head-logo {
+                display: inline-block;
+                background: url('/images/logo.png') no-repeat;
+                width: 268px;
+                height: 80px;
+                margin: 31px 40px 0 0;
+            }
+            header .phone {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                color: #818285;
+                font-size: 26px;
+                font-weight: 300;
+                line-height:34px;
+                margin:12px 0;
+                vertical-align: top; 
+            }
+            header nav {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                vertical-align: top;
+                margin-top: 58px;
+                height: 45px;
+            }
+                header nav ul {
+                    right: 0;
+                }
+                header nav li {
+                    display:inline-block;
+
+                    font-size: 16px;
+                    line-height: 37px;
+                    height: 45px;
+                    border: 3px solid #99cc53;
+                    border-left: transparent;
+                    border-right: transparent;
+                    list-style-type: none;
+                    padding-left: 52px;
+                }
+                    header nav li a {
+                        text-decoration: none;
+                        color: #3f3f3f;
+                    }
+                        header nav li a:hover {
+                            text-decoration: underline; 
+                        }
+    article {
+        margin-top: 88px!important;
+    }
+        article .even {
+            margin-top: -36px;
+        }
+        article .odd {
+            margin-left: 67px;
+            margin-top: -36px;
+        }
+        article .hexagon {
+            position: relative;
+            display: inline-block;
+            width: 133px; 
+            height: 76.79px;
+            margin: 38.39px 0;
+            margin-left: 1px;
+            background-size: auto 153.5752px;
+            background-position: center;
+            font-weight: 100;
+            font-size: 30px;
+        }
+            article .hexagon:last-child {
+                margin-right: 1px;
+            }
+
+            article .hexagon .hexTop,
+            article .hexagon .hexBottom {
+                position: absolute;
+                z-index: 1;
+                width: 94.05px;
+                height: 94.05px;
+                overflow: hidden;
+                -webkit-transform: scaleY(0.5774) rotate(-45deg);
+                -ms-transform: scaleY(0.5774) rotate(-45deg);
+                transform: scaleY(0.5774) rotate(-45deg);
+                background: inherit;
+                left: 19.48px;
+            }
+
+            /*counter transform the bg image on the caps*/
+                article .hexagon .hexTop:after,
+                article .hexagon .hexBottom:after {
+                    content: "";
+                    position: absolute;
+                    width: 133.0000px;
+                    height: 76.78758580222024px;
+                    -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+                    -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+                    transform:          rotate(45deg) scaleY(1.7321) translateY(-38.3938px);
+                    -webkit-transform-origin: 0 0;
+                    -ms-transform-origin: 0 0;
+                    transform-origin: 0 0;
+                    background: inherit;
+                }
+
+            article .hexagon .hexTop {
+                top: -47.0226px;
+            }
+
+                article .hexagon .hexTop:after {
+                    background-position: center top;
+                }
+
+            article .hexagon .hexBottom {
+                bottom: -47.0226px;
+            }
+
+                article .hexagon .hexBottom:after {
+                    background-position: center bottom;
+                }
+
+            article .hexagon:after {
+                content: "";
+                position: absolute;
+                top: 0.0000px;
+                left: 0;
+                width: 133.0000px;
+                height: 76.7876px;
+                z-index: 2;
+                background: inherit;
+            }
+        article .hexagon.photo {
+            background: #8dc63f;
+
+        }
+        article .hexagon.text {
+            background: #777778;
+        }
+        article .hexagon.spacer {
+            background: #ebe8e8;
+        }
+        article .hexContent {
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            line-height: 76px;
+            color: #fff;
+        }
+        article .people {
+            position: relative;
+            border-top: 1px solid #99cc53;
+            margin-top: 40px;
+            margin-bottom: 200px;
+            padding-top: 45px;
+        }
+            article .peopleDescription {
+                position: absolute;
+                background: #fff;
+                font-size: 14px;
+                color: #000;
+                margin-top: 45px;
+                top: 0;
+                left: 0;
+                margin-left: 65px;
+                padding-top: 40px;
+                padding-right: 30px;
+                padding-left: 135px;
+                height: 250px;
+                color: #878787;
+            }
+            article .people .signature {
+                display: block;
+                position: relative;
+                text-align: right;
+                margin-top: 30px;
+                color: #878787;
+            }
+    footer {
+        position: relative;
+        bottom: 0;
+        height: 46px;
+        width: 100%;
+        background-color: #8dc63f;
+        font-size: 12px;
+        color: #fff;
+    }
+        footer span {
+            display: inline-block;
+        }
+            footer span a {
+                text-decoration: none;
+                color: #fff;
+            }
+</style>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <div class="head-content">
+                <a href="/" class="head-logo"></a>
+                <div class="phone">+7 (383) 281 04 83</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Объекты</a></li>
+                        <li><a href="#">Партнеры</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <article class="background-photo">
+        <div class="inner">
+        </div>
+    </article>
+    <footer>
+        <div class="inner">
+            <span>Сибирские фасады 2014</span>
+            <span class="social"></span>
+                <a class="fb" href=""></a>
+                <a class="ig" href=""></a>
+                <a class="ln" href=""></a>
+            <span class="contacts">
+                <span>+7 (383) 231 04 83</span>
+                <span><a href="mailto:info@sibirskie-fasadi.ru">info@sibirskie-fasadi.ru</a></span>
+            </span>
+        </div>
+    </footer>
+</body>

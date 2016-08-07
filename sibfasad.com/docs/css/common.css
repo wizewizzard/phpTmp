@@ -1,0 +1,225 @@
+@import url('index.css');
+@import url('services.css');
+@import url('objects.css');
+@import url('stripes.css');
+@import url('hexagon.css');
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+/*
+* Sticky footer
+*/
+html, body {
+    height: 100%;
+}
+#pageWrap {
+    min-height: 100%;
+    margin-bottom: -111px;
+}
+    #pageWrap:after {
+        content: '';
+        display: block;
+        height: 111px;
+    }
+
+body, input {
+    background: url('/images/background.png');
+    font-family: 'Roboto', sans-serif;
+    font-size: 0;
+}
+p {
+    text-indent: 15px;
+}
+.inner {
+    width: 940px;
+    margin: 0 auto;
+}
+header {
+        position: relative;
+        overflow: hidden;
+    }
+        header:before,
+        header:after {
+            position: absolute;
+            content: '';
+
+            width: 175px;
+            height: 3px;
+
+            background: -moz-linear-gradient(left, rgba(153,204,83,1) 0%, rgba(153,204,83,0) 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(153,204,83,1)), color-stop(100%,rgba(153,204,83,0)));
+            background: -webkit-linear-gradient(left, rgba(153,204,83,1) 0%,rgba(153,204,83,0) 100%);
+            background: -o-linear-gradient(left, rgba(153,204,83,1) 0%,rgba(153,204,83,0) 100%);
+            background: -ms-linear-gradient(left, rgba(153,204,83,1) 0%,rgba(153,204,83,0) 100%);
+            background: linear-gradient(to right, rgba(153,204,83,1) 0%,rgba(153,204,83,0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99cc53', endColorstr='#0099cc53',GradientType=1 );
+
+            top: 58px;
+            left: 50%;
+
+            margin-left: 470px;
+        }
+            header:after {
+                top: 100px;
+            }
+        header .head-content {
+            position: relative;
+        }
+            header .head-logo {
+                display: inline-block;
+                background: url('/images/logo.png') no-repeat;
+                width: 270px;
+                height: 81px;
+                margin: 31px 40px 0 0;
+            }
+            header .flag {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                margin-top: 30px;
+                width: 22px;
+                height: 16px;
+                vertical-align: top;
+                background: url('/images/flags.png');
+                cursor: pointer;
+            }
+                header .flag.rus {
+                    background-position: 0 0;
+                    margin-right:22px;
+                }
+                header .flag.eng {
+                    background-position: -21px 0;
+                }
+            header nav {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                vertical-align: top;
+                margin-top: 58px;
+                height: 45px;
+            }
+                header nav ul {
+                    right: 0;
+                }
+                header nav li {
+                    display:inline-block;
+
+                    font-size: 16px;
+                    line-height: 37px;
+                    height: 45px;
+                    border: 3px solid #99cc53;
+                    border-left: transparent;
+                    border-right: transparent;
+                    list-style-type: none;
+                    padding-left: 52px;
+                }
+                    header nav li a {
+                        text-decoration: none;
+                        color: #3f3f3f;
+                    }
+                        header nav li a:hover {
+                            text-decoration: underline;
+                        }
+.footnav {
+    background: #eaeaea;
+    position: relative;
+    bottom:0;
+}
+    .footnav .inner  {
+        height: 78px;
+        position: relative;
+    }
+    .footnav .inner > a {
+        font-size: 10px;
+        display: inline-block;
+        color: #888;
+        width: 135px;
+        border-left: 1px solid #888;
+        height: 40px;
+        vertical-align: top;
+        margin-top: 10px;
+        padding-left: 20px;
+        text-decoration: none;
+    }
+        .footnav .inner .social {
+            position: absolute;
+            width: 230px;
+            height:68px;
+            padding: 0;
+            top: 0;
+            right: 0;
+            border: none;
+        }
+            .footnav .inner .social > a {
+                display: inline-block;
+                background: url('/images/social-icons.png');
+                width: 27px;
+                height: 27px;
+                margin-right: 5px;
+            }
+            .footnav .inner .social a.fb {
+                background-position: 0 0;
+            }
+            .footnav .inner .social a.ig {
+                background-position: -27px 0;
+            }
+            .footnav .inner .social a.ln {
+                background-position: -54px 0;
+            }
+            .footnav .inner .social span {
+                display: block;
+                font-size: 12px;
+                color: #888;
+            }
+                .footnav .inner .social span > a {
+                    color: #888!important;
+                }
+footer {
+        position: relative;
+        bottom: 0;
+        height: 33px;
+        width: 100%;
+        background-color: #8dc63f;
+        font-size: 12px;
+        color: #fff;
+        padding-top: 8px;
+        overflow: hidden;
+    }
+    footer:after {
+        content: '';
+
+        background: #818285;
+        position: absolute;
+
+        width: 100%;
+        height: 33px;
+
+        top: 0;
+        left: 50%;
+        margin-left: 240px;
+    }
+        footer span {
+            display: inline-block;
+        }
+            footer span a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+.tabs-content {
+    position: relative;
+}
+.tab-content {
+    display: none;
+    position: relative;
+}
+    .tab-content.show {
+        display: block;
+    }
+    .tab-content .inner {
+        position: relative;
+    }

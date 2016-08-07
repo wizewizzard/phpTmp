@@ -1,0 +1,34 @@
+.index {
+    width: 940px;
+    margin: 0 auto;
+    margin-top: 88px;
+}
+    .people {
+        position: relative;
+        border-top: 1px solid #99cc53;
+        margin-bottom: 50px;
+        padding-top: 45px;
+    }
+        .peopleDescription {
+            position: relative;
+            font-size: 14px;
+            color: #000;
+            text-align: justify;
+            top: 0;
+            left: 0;
+            padding-right: 30px;
+            padding-left: 200px;
+        }
+        .people .signature {
+            display: block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-style: italic;
+        }
+        .people .readMore {
+            display: block;
+            text-align: right;
+            margin-top: 30px;
+            color: #6c8fe1;
+        }
+    

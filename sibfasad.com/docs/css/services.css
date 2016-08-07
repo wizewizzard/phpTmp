@@ -1,0 +1,170 @@
+.table {
+    display: table;
+}
+.col {
+    display: table-cell;
+    vertical-align: top;
+    width: 470px;
+}
+
+nav.tabs {
+    padding-left: 375px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+    nav.tabs a {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        color: #51a15c;
+        margin-right: 20px;
+        text-decoration: none;
+    }
+    nav.tabs a.active {
+        text-decoration: underline;
+    }
+    .slide-head {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+    }
+        .slide-head-content {
+            position: relative;
+            width: 940px;
+            margin: 0 auto;
+            height: 110px;
+        }
+            .slide-head-content span {
+                position: absolute;
+                display: inline-block;
+                background: rgba(141, 198, 63, 0.5);
+                left: 0;
+                top: 0;
+                height: 110px;
+                line-height: 110px;
+                z-index: 2;
+                font-size: 60px;
+                color: #fff;
+                font-style: italic;
+                text-align: right;
+                padding-left: 50px;
+            }
+            .slide-head-content span:after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 50px;
+                right: -100px;
+                border-top: 110px solid rgba(141, 198, 63, 0.5);
+                border-right: 50px solid transparent;
+                height: 0;
+            }
+    .services {
+        display: inline-block;
+        font-size: 14px;
+        margin: 20px;
+    }
+        .services span {
+            font-weight: 700;
+        }
+        .services i.pull-right {
+            float: right;
+            display: inline-block;
+            width: 115px;
+            font-style: italic;
+        }
+        .services.green {
+            background: rgba(214, 232, 191, 0.8);
+            padding: 20px;
+        }
+    .tab-description {
+        width: 100%;
+        margin-top: 100px;
+        z-index: 2;
+    }
+        .tab-description .short-description {
+            margin-left: 70px;
+            padding: 40px;
+            width: 500px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .tab-description .full-description {
+            margin-left: 70px;
+            margin-top: 300px;
+            background: #fff;
+            display: inline-block;
+            padding: 30px 81px;
+            font-size: 14px;
+        }
+            .tab-description .full-description h3 {
+                font-weight: 900;
+                font-style: italic;
+                margin-bottom: 30px;
+            }
+.hexwrap {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    }
+    .hexagon-small {
+        position: relative;
+        width: 100px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, .3);
+        top: 325px;
+        left: 380px;
+        margin: 0 auto;
+    }
+        .hexagon-small:before,
+        .hexagon-small:after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            border-style: solid;
+            border-color: transparent;
+            border-left-width: 50px;
+            border-right-width: 50px;
+        }
+        .hexagon-small:before {
+            border-top-width: 0;
+            top: -30px;
+            border-bottom-width: 30px;
+            border-bottom-color: rgba(255, 255, 255, .3);
+        }
+        .hexagon-small:after {
+            border-bottom-width: 0;
+            bottom: -30px;
+            border-top-width: 30px;
+            border-top-color: rgba(255, 255, 255, .3);
+        }
+
+        .hexagon-small img{
+            position: absolute;
+            top: -30px;
+        }
+        .hex-small-content {
+            position: relative;
+            display: inline-block;
+            text-align: right;
+            right: 510px;
+            font-size: 12px;
+            color: #fff;
+            width: 500px;
+            height: 60px;
+        }
+            .hex-small-content:before {
+                content: '';
+                display: inline-block;
+                height: 100%; 
+                vertical-align: middle;
+            }
+            .hex-small-content span {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+                font-weight: 500;
+                text-shadow:0 0 7px #000;
+            }
+
