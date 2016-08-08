@@ -46,6 +46,7 @@ class objects extends skeleton {
         $result = mysqli_query($dbLink, $sql);
         $object = mysqli_fetch_assoc($result);
         $object['photos'] = unserialize($object['photos']);
+        $object['pdf_files'] = unserialize($object['pdf_files']);
         $pathToImages = UPLOADS_PATH . '/objectPhotos/';
         foreach ($object['photos'] as $id => $photo) {
             $thumb = \PhpThumbFactory::create($pathToImages . $photo);
