@@ -6,6 +6,7 @@ class login extends \Controllers\skeleton {
 
     public function actionindex() {
         // Redirect to admin index if user already logged in
+        global $dbLink;
         if (
             isset($_SESSION['logged_in']) == true &&
             $_SESSION['logged_in'] === true
@@ -18,7 +19,7 @@ class login extends \Controllers\skeleton {
 
         // Connect DB
         if (isset($_POST['login']) !== false) {
-            if (($dbLink = mysqli_connect('sibfasad.mysql', 'sibfasad_mysql', '+oTSk8DN', 'sibfasad_db')) === false) {
+            if ($dbLink === false) {
                 die("Error " . mysqli_error($dbLink));
             } else {
 

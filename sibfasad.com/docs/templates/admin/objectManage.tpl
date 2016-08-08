@@ -57,6 +57,22 @@
                 <input id="multiple_upload" type="file" name="photos[]" multiple>
             </div>
         </div>
+        {if $object.pdf_files != ''}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">PDF file</label>
+                <div class="col-sm-10">
+                    {foreach $object.pdf_files as $pdf_file}
+                        <span><span  class="pdf_file" data-delete='{$pdf_file}'>{$pdf_file}</span><a href="/file/load/{$pdf_file}" title="Скачать" target="_self">(Скачать)</a></span>
+                    {/foreach}
+                </div>
+            </div>
+        {/if}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Загрузка PDF файлов</label>
+            <div class="col-sm-10">
+                <input id="multiple_pdf_upload" accept=".pdf" type="file" name="pdf_files[]" multiple>
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Отображать объект на главной</label>
             <div class="col-sm-10">
@@ -111,6 +127,44 @@ $(function () {
             }
         });
     });
+
+    $('.pdf_file').click(function() {
+        var
+                $pdf_file = $(this),
+                $del = $pdf_file.attr('data-delete'),
+                $id  = $('input:hidden[name=id]').val();
+
+        bootbox.dialog({
+            message: 'Вы уверены, что хотите удалить документ?',
+            title: 'Подтверждение',
+            buttons: {
+                cancel: {
+                    label: 'Отмена',
+                    className: 'btn-default',
+                    callback: function() {
+                        // Don't do anything on cancel
+                        return true;
+                    }
+                },
+                ok: {
+                    label: 'Удалить',
+                    className: 'btn-danger',
+                    callback: function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "/admin/objects/pdfajax",
+                            data: { pdf_file: $del, id: $id },
+                            success: function(response) {
+                                $pdf_file.fadeOut();
+                            }
+                        });
+
+                        return true;
+                    }
+                }
+            }
+        });
+    });
     
     var _URL = window.URL || window.webkitURL;
 
@@ -128,6 +182,26 @@ $(function () {
                 };
             
                 image.src = _URL.createObjectURL(file);
+            });
+
+        }
+
+    });
+
+    $("#multiple_pdf_upload").change(function(e) {
+
+        var pdf, file;
+
+        if ((file = this.files[0])) {
+            $.each( this.files, function( key, value) {
+                console.log(value);
+                pdf = new PDF();
+                console.log(pdf);
+                pdf.onload = function() {
+                   // alert("The image width is " +image.width + " and image height is " + image.height);
+                };
+
+                pdf.src = _URL.createObjectURL(file);
             });
 
         }

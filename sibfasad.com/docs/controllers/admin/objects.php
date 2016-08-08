@@ -87,6 +87,22 @@ class objects extends \Controllers\skeleton {
                 }
             }
 
+            // Upload pdf files if submited
+            if (
+                isset($_FILES['pdf_files']['tmp_name']) === true &&
+                $_FILES['pdf_files']['tmp_name'][0] !== ''
+            ) {
+                // Make dir if doesn't exist
+                if (!file_exists(UPLOADS_PATH . '/objectPDFs')) {
+                    mkdir(UPLOADS_PATH . '/objectPDFs', 0777, true);
+                }
+                foreach ($_FILES['pdf_files']['tmp_name'] as $tempId => $tempName) {
+                    //$photoName = sha1($tempName . time()) . '.jpg';
+                    move_uploaded_file($_FILES['pdf_files']['tmp_name'][$tempId], UPLOADS_PATH . '/objectPDFs/' . $_FILES['pdf_files']['name'][$tempId]);
+                    $data['pdf_files'][] =  $_FILES['pdf_files']['name'][$tempId];
+                }
+            }
+
             // Update or insert new object
             if ($id === 0) {
                 // Insert
@@ -117,6 +133,15 @@ class objects extends \Controllers\skeleton {
                     $photos = unserialize($_photos['photos']);
                     $data['photos'] = array_merge($data['photos'], $photos);
                 }   
+
+                //Prepare pdf_files array
+                $sql =  'SELECT pdf_files FROM objects WHERE id = ' . $id;
+                $result = mysqli_query($dbLink, $sql);
+                $_pdf_files = mysqli_fetch_assoc($result);
+                if ($_pdf_files['pdf_files'] !== '') {
+                    $pdf_files = unserialize($_pdf_files['pdf_files']);
+                    $data['pdf_files'] = array_merge($data['pdf_files'], $pdf_files);
+                }
 
                 // Update
                 $sqlFields = [];
@@ -184,6 +209,9 @@ class objects extends \Controllers\skeleton {
         if ($object['photos'] != '') {
             $object['photos'] = unserialize($object['photos']);
         }
+        if ($object['pdf_files'] != '') {
+            $object['pdf_files'] = unserialize($object['pdf_files']);
+        }
 
         $this->template->assign('object', $object);
         $this->template->assign('id', $id);
@@ -242,5 +270,27 @@ class objects extends \Controllers\skeleton {
         mysqli_query($dbLink, $sql); 
         unlink(UPLOADS_PATH . '/objectPhotos/' . $photo);
         unlink(UPLOADS_PATH . '/objectPhotos/thumbs/' . $photo);
+    }
+    public function actionpdfajax() {
+        global $dbLink;
+
+        $id = $_POST['id'];
+        $pdf_file = $_POST['pdf_file'];
+        $sql = 'SELECT pdf_files FROM objects WHERE id =' . $id;
+        $result = mysqli_query($dbLink, $sql);
+        $_pdfFiles = mysqli_fetch_assoc($result);
+        $pdfFiles = unserialize($_pdfFiles['pdf_files']);
+        foreach ($pdfFiles as $key => $name) {
+            if ($name == $pdf_file) {
+                unset($pdfFiles[$key]);
+            }
+        }
+        $pdfFiles = serialize($pdfFiles);
+        if ($pdfFiles == 'a:0:{}') {
+            $pdfFiles = '';
+        }
+        $sql = 'UPDATE objects set pdf_files = \'' . $pdfFiles . '\' WHERE id =' . $id;
+        mysqli_query($dbLink, $sql);
+        unlink(UPLOADS_PATH . '/objectPDFs/' . $pdf_file);
     }
 }

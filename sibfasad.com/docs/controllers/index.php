@@ -95,6 +95,55 @@ class index extends skeleton {
 
         $this->setTemplate('index.tpl');
     }
+    public function actiondownloadfile($args){
+        echo 11;
+        $filename = $_GET['filename'];
+
+        $CLen = filesize($filename);
+        //$filename = basename($filePath); // запрашиваемое имя
+        $file_extension = strtolower(substr(strrchr($filename, '.'), 1));
+        // Краткий перечень mime-типов
+        //
+
+        $uploadDirectories = array (
+            'pdf' => 'objectPDFs',
+            'jpg' => 'objectPhotos'
+        );
+        if(!isset($uploadDirectories[$file_extension])){
+
+        }
+        if(!file_exists(UPLOADS_PATH.'/'.$uploadDirectories.'/'.$filename)) {
+            return false;
+        }
+
+        $CTypes = array (
+            'pdf' => 'application/pdf',
+            'gif' => 'image/gif',
+            'png' => 'image/png',
+            'jpe' => 'jpeg',
+            'jpg' => 'image/jpg'
+        );
+        $fileCType = $CTypes[$file_extension];
+        $this->setHeader('200 OK\r\nContent-Disposition: attachment; filename="' . basename($filename) . '"\r\nContent-Transfer-Encoding: binary\r\nAccept-Ranges: bytes\r\nContent-Length: ' . (filesize($filename)).'\r\nContent-Type: ' . $fileCType.'\r\n');
+        //$this->sendHeaders();
+        /*set_time_limit(0);
+        header('HTTP/1.0 200 OK');
+        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+        header('Content-Transfer-Encoding: binary');
+        header('Accept-Ranges: bytes');
+        header('Content-Length: ' . (filesize($filename)));
+        header('Content-Type: ' . $fileCType );*/
+        echo readfile($filename);
+
+        /*if(isset($_GET['filename'])) {
+            if (!file_exists($filename = $_GET['filename'])){
+                print "Файл " . $filename . "не найден!\r\n";
+            }
+            else {
+
+            }
+        }*/
+    }
 }
 class index2 extends skeleton {
 

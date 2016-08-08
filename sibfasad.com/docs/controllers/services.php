@@ -26,4 +26,6 @@ class services extends skeleton {
         $this->template->assign('services', $services);
         $this->setTemplate('services.tpl');
     }
+
+
 }

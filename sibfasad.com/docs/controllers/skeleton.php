@@ -53,7 +53,7 @@ abstract class skeleton {
     public function display()
     {
         // $this->template->assign('basket', $_SESSION['basket']);
-
+        $this->template->assign('currentDate', date("Y-m-d H:i:s"));
         $this->template->display($this->templateName);
     }
 }

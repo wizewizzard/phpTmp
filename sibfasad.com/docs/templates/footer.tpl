@@ -9,7 +9,6 @@
             <div class="social">
                 <a class="fb" href=""></a>
                 <a class="ig" href=""></a>
-                <a class="ln" href=""></a>
                 <span>
                     +7 (383) 231 04 83<br />
                     <a class="mail" href="mailto:info@sibfasad.com">info@sibfasad.com</a>
@@ -19,7 +18,7 @@
     </nav>
     <footer>
         <div class="inner">
-            <span>Сибирские фасады 2015</span>
+            <span> © Сибирские фасады {$currentDate|date_format:'%Y'}</span>
         </div>
     </footer>
 </body>
