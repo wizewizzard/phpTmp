@@ -123,6 +123,17 @@ class objects extends \Controllers\skeleton {
                     VALUES (\'' . implode('\', \'', $sqlValues) . '\')';
 
                 unset($sqlFields, $sqlValues);
+                mysqli_query($dbLink, $sql);
+                $row_id = mysqli_insert_id($dbLink);
+                /**
+                 * add partners for object
+                 */
+                $partnersSelected = $_POST['partners'];
+                foreach($partnersSelected as $partnerSelected){
+                    $sql = "INSERT INTO objects_of_partners (object_id, partner_id)
+                    VALUES ($row_id, $partnerSelected)";
+                    mysqli_query($dbLink, $sql);
+                }
             } else {
 
                 // Prepare photos array
@@ -164,11 +175,41 @@ class objects extends \Controllers\skeleton {
                 $sql = 'UPDATE objects
                     SET ' . implode(', ', $sqlFields) . '
                     WHERE id = ' . $id;
-
+                mysqli_query($dbLink, $sql);
                 unset($sqlFields);
+                /**
+                 * update partners for object
+                 */
+                $partnersSelected = $_POST['partners'];
+                $sql = 'SELECT partner_id FROM objects_of_partners WHERE object_id = ' . (int) $id;
+                $result = mysqli_query($dbLink, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $oldPartners[] = $row['partner_id'];
+                    unset($row);
+                }
+                $uniquePartners = array_unique(array_merge($partnersSelected, $oldPartners));
+                /**
+                 * save each new partner
+                 */
+                foreach($partnersSelected as $partnerSelected){
+                    if(!in_array($partnerSelected, $oldPartners)){
+                        $sql = "INSERT INTO objects_of_partners (object_id, partner_id)
+                    VALUES ($id, $partnerSelected)";
+                        mysqli_query($dbLink, $sql);
+                    }
+                }
+                /**
+                 * delete old unselected partners
+                 */
+                foreach($oldPartners as $oldPartner){
+                    if(!in_array($oldPartner, $partnersSelected)){
+                        $sql = "DELETE FROM objects_of_partners WHERE object_id=$id and partner_id=$oldPartner";
+                        mysqli_query($dbLink, $sql);
+                    }
+                }
             }
 
-            mysqli_query($dbLink, $sql);
+
             header('location: /admin/objects');
             exit;
         }
@@ -182,7 +223,14 @@ class objects extends \Controllers\skeleton {
             'category'      => '',
             'show_object'   => true,
         ];
-
+        $sql =  'SELECT * FROM partners ORDER BY name ASC';
+        $result = mysqli_query($dbLink, $sql);
+        $allPartners = [];
+        $selectedPartners = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $allPartners[$row['id']] = $row['name'];
+            unset($row);
+        }
         if ($id === 0) {
             // Add products
 
@@ -204,6 +252,12 @@ class objects extends \Controllers\skeleton {
                 $this->setTemplate('objectManage.tpl');
                 $this->setTitle('Редактирование объекта');
             }
+            $sql = 'SELECT partner_id FROM objects_of_partners WHERE object_id = ' . (int) $id;
+            $result = mysqli_query($dbLink, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $selectedPartners[] = $row['partner_id'];
+                unset($row);
+            }
         }
         // Prepare photos to display if needed
         if ($object['photos'] != '') {
@@ -214,6 +268,8 @@ class objects extends \Controllers\skeleton {
         }
 
         $this->template->assign('object', $object);
+        $this->template->assign('allPartners', $allPartners);
+        $this->template->assign('selectedPartners', $selectedPartners);
         $this->template->assign('id', $id);
         $this->template->assign('active', $active);
         

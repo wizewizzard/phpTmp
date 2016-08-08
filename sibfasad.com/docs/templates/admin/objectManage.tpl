@@ -49,6 +49,20 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">Партнеры</label>
+            <div class="col-sm-10">
+                <select multiple name="partners[]">
+                    {foreach $allPartners as $key => $partner}
+                        {if in_array($key, $selectedPartners)}
+                            <option selected value={$key}>{$partner}</option>
+                        {else}
+                            <option value={$key}>{$partner}</option>
+                        {/if}
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">Технологии</label>
             <div class="col-sm-10">
                 <textarea class="form-control" name="technologies" rows="3" placeholder="Допуски продукта">{$object.technologies}</textarea>
