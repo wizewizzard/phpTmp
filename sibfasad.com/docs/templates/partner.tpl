@@ -176,6 +176,18 @@
         font-size: 14px;
         text-align: left;
     }
+.otherObjects {
+    height: 300px;
+    border-top: 1px solid #99cc53;
+}
+.otherObjects > h3 {
+    font-weight: 700;
+    font-style: italic;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+}
+
 </style>
 
 <article class="inner">
@@ -208,18 +220,18 @@
             {$partner.description}
         </div>
     </div>
-    <div class="otherPartners">
-        <h3>Остальные партнёры</h3>
+    <div class="otherObjects">
+        <h3>Объекты партнера</h3>
         <ul class="objectSlider">
             <li>
-                {foreach $partners as $id => $data}
+                {foreach $objects as $id => $data}
                     {if $count == 6}
                         </li>
                         <li>
                         {assign var=count value=0}
                     {/if}
                     {assign var=count value=$count+1}
-                    <a href="/partners/view/{$id}" class="hexagon partner" style="background-image: url('{if $data.logo != ''}/upload/partnerPhotos/{$data.logo}{else}/images/noimage.png{/if}');">
+                    <a href="/objects/view/{$id}" class="hexagon" data-category="{if isset($data.category) && $data.category != ''}{$data.category}{/if}" {if isset($data.photo) && $data.photo != ''}style="background-image: url(/upload/objectPhotos/thumbs/{$data.photo});"{/if}>
                         <div class="hexTop"></div>
                         <div class="hexContent"><h3>{$data.name}</h3></div>
                         <div class="hexBottom"></div>

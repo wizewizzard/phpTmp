@@ -77,6 +77,7 @@ class objects extends skeleton {
         mysqli_free_result($result);
         unset($sql, $result);
 
+
         // Check if page exists
         if ($object == null) {
             header('location:/404');            

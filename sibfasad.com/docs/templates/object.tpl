@@ -117,7 +117,7 @@ nav.tabs {
             <a href="#description" class="active">Описание</a>
             <a href="#participants">Участники</a>
             <a href="#tech">Технологии</a>
-            <a href="#projec">Проект</a>
+            <a href="#project">Проект</a>
         </nav>
         <div class="tabs-content">
             <div rel="#description" class="tab-content show">
@@ -129,7 +129,7 @@ nav.tabs {
             <div rel="#tech" class="tab-content">
                 {$object.technologies}
             </div>
-            <div rel="#projec" class="tab-content">
+            <div rel="#project" class="tab-content">
                 {foreach $object.pdf_files as $id => $data}
                     <a href="/file/load/{$data}">{$data}</a>
                 {/foreach}

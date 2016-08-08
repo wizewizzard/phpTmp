@@ -45,13 +45,36 @@ class partners extends skeleton {
         }
         mysqli_free_result($result);
         unset($sql, $result);
+        $objects = [];
 
         // Check if page exists
         if ($partner == null) {
             header('location:/404');            
-        } 
+        }
+        /**
+         * load objects data
+         */
+        $pathToImages = ROOT_PATH . '/upload/objectPhotos/';
+        $pathToThumbs = ROOT_PATH . '/upload/objectPhotos/thumbs/';
+        $sql = "SELECT objects.* from objects_of_partners INNER JOIN objects
+                on objects_of_partners.object_id = objects.id WHERE partner_id = $id";
+        $result = mysqli_query($dbLink, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $objects[$row['id']] = $row;
+            $objects[$row['id']]['photo'] = $photo = array_shift(unserialize($row['photos']));
+            if ($photo != '') {
+                if (file_exists($pathToThumbs . $photo) != true) {
+                    $thumb = \PhpThumbFactory::create($pathToImages . $photo);
+                    $thumb->adaptiveResize(175, 175);
+                    $thumb->save($pathToThumbs . $photo);
+                }
+            }
+            unset($row);
+        }
+
         $this->template->assign('partner', $partner);
         $this->template->assign('partners', $partners);
+        $this->template->assign('objects', $objects);
         $this->template->assign('count', 0);
         $this->setTemplate('partner.tpl');
 
