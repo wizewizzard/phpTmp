@@ -1,5 +1,30 @@
 {include file="header.tpl"}
-
+<style>
+    .pdfFileContainer{
+        display:inline-block;
+        width: 180px;
+        margin-right: 10px;
+    }
+    .pdfFileContainer > * {
+        display: inline-block;
+    }
+    .pdfFileContainer .documentTitle{
+        text-align: center;
+        display: block;
+        font-weight: bold;
+    }
+    .pdfFileContainer .btn{
+        width: 80px;
+    }
+    .pdfFileContainer .btn:nth-child(1){
+        float:left;
+        margin-left: 5px;
+    }
+    .pdfFileContainer .btn:nth-child(2){
+        float:right;
+        margin-right: 15px;
+    }
+</style>
 <h1>{$header}</h1>
 
 <div class="row">
@@ -59,10 +84,10 @@
         </div>
         {if $object.pdf_files != ''}
             <div class="form-group">
-                <label class="col-sm-2 control-label">PDF file</label>
+                <label class="col-sm-2 control-label">PDF файлы</label>
                 <div class="col-sm-10">
                     {foreach $object.pdf_files as $pdf_file}
-                        <span><span  class="pdf_file" data-delete='{$pdf_file}'>{$pdf_file}</span><a href="/file/load/{$pdf_file}" title="Скачать" target="_self">(Скачать)</a></span>
+                        <div class="pdfFileContainer"><div class="documentTitle">{$pdf_file}</div><a href="/file/load/{$pdf_file}" class="btn btn-primary" title="Скачать" target="_self">Скачать</a><span  class="pdf_file btn btn-danger" data-delete='{$pdf_file}'>Удалить</span></div>
                     {/foreach}
                 </div>
             </div>
@@ -155,7 +180,7 @@ $(function () {
                             url: "/admin/objects/pdfajax",
                             data: { pdf_file: $del, id: $id },
                             success: function(response) {
-                                $pdf_file.fadeOut();
+                                $pdf_file.parent('.pdfFileContainer').fadeOut();
                             }
                         });
 
