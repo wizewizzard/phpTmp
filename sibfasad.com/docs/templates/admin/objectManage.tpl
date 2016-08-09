@@ -37,9 +37,15 @@
             <input type="hidden" name="id" value="{if isset($id)}{$id}{/if}">
         </div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">Краткое описание</label>
+            <div class="col-sm-10">
+                <input type="text" name="brief_info" class="form-control" value="{$object.brief_info}" placeholder="Наименование объекта">
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">Описание</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="description" rows="3" placeholder="Допуски продукта">{$object.description}</textarea>
+                <textarea class="form-control" name="description" rows="3" placeholder="Данный текст будет высвечиваться рядом с шестиугольником">{$object.description}</textarea>
             </div>
         </div>
         <div class="form-group">

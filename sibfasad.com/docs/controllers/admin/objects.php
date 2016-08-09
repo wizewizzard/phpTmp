@@ -55,6 +55,7 @@ class objects extends \Controllers\skeleton {
             // Prepare varibles
             $data = [
                 'name'          => '',
+                'brief_info'    => '',
                 'description'   => '',
                 'participiants' => '',
                 'technologies'  => '',
@@ -216,6 +217,7 @@ class objects extends \Controllers\skeleton {
 
         $object = [
             'name'          => '',
+            'brief_info'    => '',
             'description'   => '',
             'participiants' => '',
             'technologies'  => '',

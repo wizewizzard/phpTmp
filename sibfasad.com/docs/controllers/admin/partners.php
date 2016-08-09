@@ -55,6 +55,7 @@ class partners extends \Controllers\skeleton {
             // Prepare varibles
             $data = [
                 'name'       => '',
+                'brief_info' => '',
                 'logo'       => '',
                 'photo'      => '',
                 'photoLabel' => '',
@@ -188,6 +189,7 @@ class partners extends \Controllers\skeleton {
         // Prepare varibles
         $partner = [
             'name'       => '',
+            'brief_info' => '',
             'logo'       => '',
             'photo'      => '',
             'photoLabel' => '',
