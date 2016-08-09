@@ -49,6 +49,7 @@ tinymce.init({
                         <li class="{if isset($active) and $active == 'video'}active{/if}"><a href="/admin/video">Видео</a></li>
                         <li class="{if isset($active) and $active == 'certificates'}active{/if}"><a href="/admin/certificates">Дипломы</a></li>
                         <li class="{if isset($active) and $active == 'users'}active{/if}"><a href="/admin/users">Пользователи</a></li>
+                        <li class="{if isset($active) and $active == 'config'}active{/if}"><a href="/admin/config">Прочие настройки</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

@@ -191,17 +191,18 @@
 </style>
 
 <article class="inner">
-
+    <div class="partner-logo-wrap">
         {if isset($partner.logo) && $partner.logo != ''}
-            <div class="partner-logo-wrap">
+
             {if $partner.url != ''}
                 <a href="{$partner.url}" class="company-link"><img src="/upload/partnerPhotos/{$partner.logo}" /></a>
             {else}
                 <img src="/upload/partnerPhotos/{$partner.logo}" />
             {/if}
-            </div>
+        {else}
+            <img src="/images/noimage.png" />
         {/if}
-
+    </div>
     <div class="partners">
         <div class="column left">
             <div class="hexagon-partner" style="background-image: url('{if $partner.photo != ''}/upload/partnerPhotos/{$partner.photo}{else}/images/nophoto.png{/if}');">

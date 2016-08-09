@@ -105,6 +105,12 @@ class index extends skeleton {
         $hexagonsPhoto = [];//array of hexagons for photo
         $hexagonsText = [];//array of hexagons for text
         $itemsToDisplay = 11;//this the variable where user specifies number of displayed items
+        $sql = 'SELECT * FROM config WHERE param = "main_page_items_num"';
+        $result = mysqli_query($dbLink, $sql);
+        if (($config = mysqli_fetch_assoc($result)) !== null) {
+            $itemsToDisplay = $config['value'];
+        }
+
         $hexagonRowsNum = 39;//how many hexagons in one layout
         /**
          * count max needed number of hexagons
