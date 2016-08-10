@@ -140,6 +140,7 @@ header {
                 font-family: 'univers';
                 letter-spacing: -0.2px;
             }
+
                 header nav ul {
                     right: 0;
                 }
@@ -158,6 +159,7 @@ header {
                     header nav li a {
                         text-decoration: none;
                         color: #3f3f3f;
+                        font-family: 'univers';
                     }
                         header nav li a:hover {
                             text-decoration: underline;
