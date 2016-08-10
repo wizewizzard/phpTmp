@@ -40,7 +40,7 @@ class index extends skeleton {
                             'name' => $row['name'],
                             'photo' => $photo,
                             'brief_info' => (isset($row['brief_info']) && $row['brief_info']!='') ?
-                                $row['brief_info'] : ' '
+                                $row['brief_info'] : 'Перейти к просмотру'
 
                             ];
             }
@@ -67,7 +67,7 @@ class index extends skeleton {
                                 'name' => $row['name'],
                                 'photo' => $photo,
                                 'brief_info' => (isset($row['brief_info']) && $row['brief_info']!='') ?
-                                    $row['brief_info']  : ' '
+                                    $row['brief_info']  : 'Перейти к просмотру'
 
                 ];
             } //endif

@@ -38,7 +38,7 @@ class objects extends skeleton {
                 'photo' => $photo,
                 'category' => $row['category'],
                 'brief_info' => (isset($row['brief_info']) && $row['brief_info']!='') ?
-                    $row['brief_info'] : 'No info yet'
+                    $row['brief_info'] : 'Перейти к просмотру'
 
             ];
             unset($row);

@@ -221,6 +221,7 @@
             {$partner.description}
         </div>
     </div>
+    {if count($objects) > 0}
     <div class="otherObjects">
         <h3>Объекты партнера</h3>
         <ul class="objectSlider">
@@ -241,6 +242,7 @@
             </li>
         </ul>
     </div>
+    {/if}
 </article>
 
 {include 'footer.tpl'}

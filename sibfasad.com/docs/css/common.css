@@ -3,7 +3,41 @@
 @import url('objects.css');
 @import url('stripes.css');
 @import url('hexagon.css');
+@font-face{
+    font-family:univers-bold;
+    src:url(fonts/7d7febe5-1a6c-46a6-985b-a4fcd05e05cf.eot?#iefix);
+    src:url(fonts/7d7febe5-1a6c-46a6-985b-a4fcd05e05cf.eot?#iefix) format("eot"),
+    url(fonts/a48ca3bb-e3f0-4b9b-a914-ab279bee40fa.woff) format("woff"),
+    url(fonts/a6500c86-8c9e-433c-a25e-a6d14cdc9bf0.ttf) format("truetype"),
+    url(fonts/2995ad8b-a41a-47a5-8ff9-4ba180cf7131.svg#2995ad8b-a41a-47a5-8ff9-4ba180cf7131) format("svg");
+    font-weight:700;font-style:normal}
 
+@font-face{
+    font-family:univers-light;
+    src:url(fonts/3b254e81-c3f2-459e-a17f-5ef108498f13.eot?#iefix);
+    src:url(fonts/3b254e81-c3f2-459e-a17f-5ef108498f13.eot?#iefix) format("eot"),
+    url(fonts/6ecb143f-d529-41a1-8d64-b52fb31b4ee0.woff) format("woff"),
+    url(fonts/3f019d16-3ffd-41eb-9732-e85cc79d05e4.ttf) format("truetype"),
+    url(fonts/5eda4e27-5666-4d4c-9529-9c09c9667099.svg#5eda4e27-5666-4d4c-9529-9c09c9667099) format("svg");
+    font-weight:400;font-style:normal}
+
+@font-face{
+    font-family:univers;
+    src:url(fonts/e61e3b7e-bbac-445d-b02c-7b1b4a46c7b8.eot?#iefix);
+    src:url(fonts/e61e3b7e-bbac-445d-b02c-7b1b4a46c7b8.eot?#iefix) format("eot"),
+    url(fonts/e3758fe9-1688-4c54-bced-f0d3271944b2.woff) format("woff"),
+    url(fonts/8bbc5f77-c473-4df2-b936-45d6e5389da9.ttf) format("truetype"),
+    url(fonts/7784506a-b342-4ea9-9379-bdab1c51eb72.svg#7784506a-b342-4ea9-9379-bdab1c51eb72) format("svg");
+    font-weight:400;font-style:normal}
+
+@font-face{
+    font-family:schueco-icons;
+    src:url(fonts/schueco-icons.eot?-z3v1d0);
+    src:url(fonts/schueco-icons.eot?#iefix-z3v1d0) format("embedded-opentype"),
+    url(fonts/schueco-icons.woff?-z3v1d0) format("woff"),
+    url(fonts/schueco-icons.ttf?-z3v1d0) format("truetype"),
+    url(fonts/schueco-icons.svg?-z3v1d0#schueco-icons) format("svg");
+    font-weight:400;font-style:normal}
 * {
     box-sizing: border-box;
 
@@ -15,6 +49,7 @@
 */
 html, body {
     height: 100%;
+    font-family: 'univers-light';
 }
 #pageWrap {
     min-height: 100%;
@@ -28,7 +63,7 @@ html, body {
 
 body, input {
     background: url('/images/background.png');
-    font-family: 'Roboto', sans-serif;
+    font-family: 'univers-light', sans-serif;
     font-size: 0;
 }
 p {
@@ -101,6 +136,9 @@ header {
                 vertical-align: top;
                 margin-top: 58px;
                 height: 45px;
+                text-transform: uppercase;
+                font-family: 'univers';
+                letter-spacing: -0.2px;
             }
                 header nav ul {
                     right: 0;
@@ -108,14 +146,14 @@ header {
                 header nav li {
                     display:inline-block;
 
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 37px;
                     height: 45px;
                     border: 3px solid #99cc53;
                     border-left: transparent;
                     border-right: transparent;
                     list-style-type: none;
-                    padding-left: 52px;
+                    padding-left: 38px;
                 }
                     header nav li a {
                         text-decoration: none;
@@ -130,29 +168,40 @@ header {
     bottom:0;
 }
     .footnav .inner  {
-        height: 78px;
+        height: 68px;
         position: relative;
     }
     .footnav .inner > a {
-        font-size: 10px;
+        font-size: 16px;
         display: inline-block;
         color: #888;
         width: 135px;
         border-left: 1px solid #888;
         height: 40px;
         vertical-align: top;
-        margin-top: 10px;
-        padding-left: 20px;
+        margin-top: 14px;
+        line-height: 40px;
         text-decoration: none;
+        text-align: center;
+        font-family: 'univers';
+        letter-spacing: -0.2px;
+    }
+    .footnav .inner > a:hover {
+        text-decoration: underline;
+
+    }
+    .footnav .inner > a:nth-child(5){
+        border-right: 1px solid #888;
     }
         .footnav .inner .social {
-            position: absolute;
             width: 230px;
-            height:68px;
+            height:60px;
             padding: 0;
-            top: 0;
+            margin-top: 7px;
             right: 0;
             border: none;
+            float: right;
+            text-align: right;
         }
             .footnav .inner .social > a {
                 display: inline-block;
@@ -161,6 +210,9 @@ header {
                 height: 27px;
                 margin-right: 5px;
             }
+.footnav .inner .social > a:nth-child(2) {
+    margin-right: 25px;
+}
             .footnav .inner .social a.fb {
                 background-position: 0 0;
             }
@@ -184,10 +236,12 @@ footer {
         height: 33px;
         width: 100%;
         background-color: #8dc63f;
-        font-size: 12px;
+        font-size: 13px;
         color: #fff;
         padding-top: 8px;
         overflow: hidden;
+        text-align: center;
+    font-family: 'univers';
     }
     footer:after {
         content: '';
@@ -223,3 +277,6 @@ footer {
     .tab-content .inner {
         position: relative;
     }
+a{
+    color: #6c8fe1 !important;
+}

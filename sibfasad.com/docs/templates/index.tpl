@@ -7,6 +7,9 @@
     .odd .emptyHexagon{
 
     }
+    .hexagon{
+
+    }
     .gray{
         background: #444;
     }
@@ -35,14 +38,29 @@
     .textHexagon{
         word-wrap: break-word;
     }
-    .textHexagon .hexContent .hexBottom .hexTop{
+
+    .textHexagon .hexBottom{
         opacity: 1.0;
-        background: none;
     }
     .textHexagon .hexContent{
         padding-left:5px;
         padding-right:5px;
         font-size: 14px;
+        opacity: 1.0;
+        background: transparent;
+    }
+
+    .textHexagon .hexContent:before {
+        border-top-width: 0;
+        top: -38px;
+        border-bottom-width: 0px;
+        border-bottom-color: rgba(0, 0, 0, .4);
+    }
+    .textHexagon .hexContent:after {
+        border-bottom-width: 0;
+        bottom: -38px;
+        border-top-width: 0px;
+        border-top-color: rgba(0, 0, 0, .4);
     }
     a.hexagon:hover > * {
     webkit-transition: 0s;

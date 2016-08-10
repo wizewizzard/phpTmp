@@ -16,6 +16,7 @@
     background-position: center;
     font-weight: 100;
     font-size: 12px;
+    z-index: 3;
 }
     .hexagon.partner {
         background-size: contain;
@@ -119,6 +120,7 @@
 }
 a.hexagon:hover{
     box-shadow: 0 0 20px rgba(0, 0, 0, .9);
+    z-index: 50;
 }
     a.hexagon:hover .hexTop,
     a.hexagon:hover .hexBottom {
