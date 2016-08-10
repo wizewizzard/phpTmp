@@ -40,9 +40,17 @@ nav.tabs {
     .objectInfo .tab-content {
         padding: 20px 0;
     }
+    .hexagon{
+
+    }
+    .objectSlider li{
+        padding-top:8px;
+        padding-bottom:8px;
+    }
 .otherObjects {
-    height: 300px;
-    border-top: 1px solid #99cc53;
+    padding: 10px;
+    margin-bottom: 20px;;
+    /*border-top: 1px solid #99cc53;*/
 }
     .otherObjects > h3 {
         font-weight: 700;
@@ -51,7 +59,30 @@ nav.tabs {
         font-size: 14px;
         text-align: left;
     }
+    .otherObjectHexagon{
+        margin-left:20px;
+        margin-right:20px;
 
+    }
+    .currentObject{
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        -moz-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+    }
+    .currentObject .hexTop {
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        -moz-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+    }
+
+    .currentObject .hexBottom {
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        -moz-box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+        box-shadow: 0px 0px 15px 6px rgba(153,204,83,1);
+    }
+    .currentObject:hover{
+        box-shadow: 0 0 0px rgba(0, 0, 0, .9);
+    }
 /*//////////*/
 .bx-wrapper .bx-prev {
     left: 0;
@@ -105,6 +136,25 @@ nav.tabs {
 }
 </style>
 <article class="inner">
+    <div class="otherObjects">
+        <ul class="objectSlider">
+            <li>
+                {foreach $objects as $id => $data}
+                {if $count == 5}
+            </li>
+            <li>
+                {assign var=count value=0}
+                {/if}
+                {assign var=count value=$count+1}
+                <a href="/objects/view/{$id}" class="hexagon otherObjectHexagon {if $data@first}currentObject{/if}" {if isset($data.photo) && $data.photo != ''}style="background-image: url(/upload/objectPhotos/thumbs/{$data.photo});"{/if}>
+                    <div class="hexTop"></div>
+                    <div class="hexContent"><h3>{$data.name}</h3></div>
+                    <div class="hexBottom"></div>
+                </a>
+                {/foreach}
+            </li>
+        </ul>
+    </div>
     <h1 style="font-size: 40px; font-weight: 500; color: #777; font-style: italic;">{$object.name}</h1>
     <div id="galleria" style="height: 600px; background: #eee">
         {foreach $object.photos as $id => $data}
@@ -136,26 +186,7 @@ nav.tabs {
             </div>
         </div>
     </div>
-    <div class="otherObjects">
-        <h3>Остальные объекты</h3>
-        <ul class="objectSlider">
-            <li>
-                {foreach $objects as $id => $data}
-                    {if $count == 6}
-                        </li>
-                        <li>
-                        {assign var=count value=0}
-                    {/if}
-                    {assign var=count value=$count+1}
-                    <a href="/objects/view/{$id}" class="hexagon" {if isset($data.photo) && $data.photo != ''}style="background-image: url(/upload/objectPhotos/thumbs/{$data.photo});"{/if}>
-                        <div class="hexTop"></div>
-                        <div class="hexContent"><h3>{$data.name}</h3></div>
-                        <div class="hexBottom"></div>
-                    </a>
-                {/foreach}
-            </li>
-        </ul>
-    </div>
+
 </article>
 
 <script type="text/javascript">

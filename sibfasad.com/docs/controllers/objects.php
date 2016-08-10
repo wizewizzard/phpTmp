@@ -38,7 +38,8 @@ class objects extends skeleton {
         global $dbLink;
 
         $id = (int) array_shift($args);
-
+        $pathToImages = ROOT_PATH . '/upload/objectPhotos/';
+        $pathToThumbs = ROOT_PATH . '/upload/objectPhotos/thumbs/';
         // Get main selected object photos
         $sql = 'SELECT *
             FROM objects 
@@ -48,20 +49,27 @@ class objects extends skeleton {
         $object['photos'] = unserialize($object['photos']);
         $object['pdf_files'] = unserialize($object['pdf_files']);
         $pathToImages = UPLOADS_PATH . '/objectPhotos/';
-        foreach ($object['photos'] as $id => $photo) {
+        foreach ($object['photos'] as $key => $photo) {
             $thumb = \PhpThumbFactory::create($pathToImages . $photo);
             $thumb->adaptiveResize(940, 600);
             $thumb->save($pathToImages . $photo);
+        }
+        $object['photo'] = $photo = array_shift($object['photos']);
+        if ($photo != '') {
+            if (file_exists($pathToThumbs . $photo) != true) {
+                $thumb = \PhpThumbFactory::create($pathToImages . $photo);
+                $thumb->adaptiveResize(175, 175);
+                $thumb->save($pathToThumbs . $photo);
+            }
         }
         mysqli_free_result($result);
         unset($sql, $result);
 
         // Get other objects thumbs
         $sql = 'SELECT id, name, photos
-            FROM objects';
+            FROM objects where id <> ' . $id;
         $result = mysqli_query($dbLink, $sql);
-        $pathToImages = ROOT_PATH . '/upload/objectPhotos/';
-        $pathToThumbs = ROOT_PATH . '/upload/objectPhotos/thumbs/';
+        $objects[abs($id)] = $object;
         while ($row = mysqli_fetch_assoc($result)) {
             $objects[$row['id']] = $row;
             $objects[$row['id']]['photo'] = $photo = array_shift(unserialize($row['photos']));
@@ -76,7 +84,6 @@ class objects extends skeleton {
         }
         mysqli_free_result($result);
         unset($sql, $result);
-
 
         // Check if page exists
         if ($object == null) {
