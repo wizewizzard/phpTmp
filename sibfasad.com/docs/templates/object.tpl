@@ -134,6 +134,14 @@ nav.tabs {
     display: inline-block;
     margin: 0 auto;
 }
+.pdfDocLink{
+    background: url(/images/pdf-icon.png);
+    background-size: 20px 20px;
+    padding-left:25px;
+    background-repeat: no-repeat;
+    background-position: left top;
+
+}
 </style>
 <article class="inner">
     <div class="otherObjects">
@@ -181,7 +189,7 @@ nav.tabs {
             </div>
             <div rel="#project" class="tab-content">
                 {foreach $object.pdf_files as $id => $data}
-                    <a href="/file/load/{$data}">{$data}</a>
+                    <p><a class="pdfDocLink" href="/file/load/{$data}">{$data}</a></p>
                 {/foreach}
             </div>
         </div>
