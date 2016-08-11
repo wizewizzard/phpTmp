@@ -5,6 +5,7 @@
     <link href='/css/common.css' rel='stylesheet' type='text/css' />
     <link href="/css/jquery.bxslider.css" rel="stylesheet" />
     <link href="/css/prettyPhoto.css" rel="stylesheet" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/introAnimation.css">
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/js/galleria-1.4.2.min.js"></script>

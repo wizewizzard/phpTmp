@@ -1,5 +1,4 @@
 {include 'header.tpl'}
-
 <style>
     .even .emptyHexagon{
 
@@ -38,7 +37,6 @@
     .textHexagon{
         word-wrap: break-word;
     }
-
     .textHexagon .hexBottom{
         opacity: 1.0;
     }
@@ -49,7 +47,6 @@
         opacity: 1.0;
         background: transparent;
     }
-
     .textHexagon .hexContent:before {
         border-top-width: 0;
         top: -38px;
@@ -105,21 +102,149 @@ video {
     width: 310px;
     text-align: center;
 }
+#overlay-video{
+    z-index: 100000;
+    background: black;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+}
+    .loaderImage{
+        display: block;
+        width:50px;
+        margin: 0 auto;
+        position: relative;
 
+    }
+    .slideImage{
+
+        position: relative;
+        width: 100%;
+    }
+
+    .backGround{
+        position: absolute;
+        opacity: 0.0;
+        width: 100%;
+        height:100%;
+
+    }
+    #logoAfterVideo{
+        opacity: 1.0;
+        position: absolute;
+        left: 0px;
+        -webkit-animation: moveElementAfterInfro;
+        animation-duration: 3.5s;
+        animation-delay: 0.2s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+        animation-fill-mode:forwards;
+        -webkit-animation-fill-mode: forwards;
+    }
+    #slide1{
+        z-index: 100007;
+    }
+    #slide1 .backGround{
+        z-index: 100006;
+        background: white;
+        -webkit-animation: scaleBackground;
+        animation-duration: 3.5s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide2{
+        z-index: 100005;
+
+    }
+    #slide2 .backGround{
+        background: black;
+        -webkit-animation: scaleBackgroundR;
+        animation-duration: 3.5s;
+        animation-delay: 3.4s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide3{
+        z-index: 100004;
+    }
+    #slide3 .backGround{
+        z-index: 100003;
+        background: white;
+        -webkit-animation: scaleBackground;
+        animation-delay: 6.8s;
+        animation-duration: 3.5s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide4{
+        z-index: 100002;
+    }
+    #slide4 .backGround{
+        z-index: 100001;
+        background: white;
+        -webkit-animation: scaleBackground;
+        animation-delay: 10.2s;
+        animation-duration: 3.5s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide1 img{
+        -webkit-animation: blurScaleBright;
+        animation-duration: 3.5s;
+
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide2 img{
+        -webkit-animation: blurScaleBlur;
+        animation-duration: 3.5s;
+        animation-delay: 3.4s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide3 img{
+        -webkit-animation: blurScaleBright;
+        animation-duration: 3.5s;
+        animation-delay: 6.8s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+    #slide4 img{
+        -webkit-animation: blurScaleBlur;
+        animation-duration: 3.5s;
+        animation-delay: 10.2s;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
 </style>
 {if $withVideo == true}
-<div id="overlay-video" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 10000; background: #000">
-    <!-- Begin Video.js -->
-    <video id="movie-id" class="video-js vjs-default-skin alignleft" width="100%" height="100%" preload="auto" autoplay data-setup="{}">
-        <source src="/upload/video/intro.mp4" type='video/mp4' />
-    </video>
-    <div id="video-content" style="display: none;">
-        <img src="/images/logo.png" alt="Сибирские фасады"><br>
+<div id="overlay-video">
+    <script>
+        $('body').css('overflow', 'hidden');
+    </script>
+    <!-- List of images and text -->
+    <ul>
+        <li id="loader"><img src="/images/whiteLoader.gif" class="loaderImage"/><span>text for slide 1</span></li>
+        <li id="slide1"><div class="backGround"><img src="/images/slide2.jpg" class="slideImage"/></div><span>text for slide 1</span></li>
+        <li id="slide2"><div class="backGround"><img src="/images/slide2.jpg" class="slideImage"/></div><span>text for slide 2</span></li>
+        <li id="slide3"><div class="backGround"><img src="/images/slide2.jpg" class="slideImage"/></div><span>text for slide 3</span></li>
+        <li id="slide4"><div class="backGround"><img src="/images/slide2.jpg" class="slideImage"/></div><span>text for slide 4</span></li>
+     </ul>
+
+    <div id="logoAfterVideo">
+        Select language
         <a href="#" style="display: inline-block; background-image: url('/images/flags.png'); width: 22px; height: 16px;"></a>
         <a href="#" style="display: inline-block; background-image: url('/images/flags.png'); width: 22px; height: 16px; background-position: -21px 0;"></a>
     </div>
-    <!-- End Video.js -->
 </div>
+    <script>
+        $('.loaderImage').css({
+            position:'absolute',
+            left: ($(document).width() - $('.loaderImage').outerWidth())/2,
+            top: ($(document).height() - $('.loaderImage').outerHeight())/2
+        });
+
+    </script>
 {/if}
 <article class="index">
     {assign var=even value=1}
@@ -215,6 +340,75 @@ video {
 
 <script type="text/javascript">
 $(document).ready(function(){
+
+
+   /* $('#slide1 img').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide1 img').outerWidth())/2,
+        top: ($(window).height() - $('#slide1 img').outerHeight())/2
+    });*/
+    /*$('#slide1 .backGround').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide1 .backGround').outerWidth())/2,
+        top: ($(window).height() - $('#slide1 .backGround').outerHeight())/2
+    });*/
+    $('#slide1 .backGround').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide1 .backGround').outerWidth())/2,
+        top: ($(window).height() - $('#slide1 .backGround').outerHeight())/2
+    });
+    $('#slide2 .backGround').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide2 .backGround').outerWidth())/2,
+        top: ($(window).height() - $('#slide2 .backGround').outerHeight())/2
+    });
+    /*$('#slide3 img').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide3 img').outerWidth())/2,
+        top: ($(window).height() - $('#slide3 img').outerHeight())/2
+    });*/
+    $('#slide3 .backGround').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide3 .backGround').outerWidth())/2,
+        top: ($(window).height() - $('#slide3 .backGround').outerHeight())/2
+    });
+    /*$('#slide4 img').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide4 img').outerWidth())/2,
+        top: ($(window).height() - $('#slide4 img').outerHeight())/2
+    });*/
+    $('#slide4 .backGround').css({
+        position:'absolute',
+        left: ($(window).width() - $('#slide4 .backGround').outerWidth())/2,
+        top: ($(window).height() - $('#slide4 .backGround').outerHeight())/2
+    });
+
+    $('.loaderImage').remove();
+
+    var slideDuration = 2000;
+
+   /* $("#slide1").find('img').fadeIn(0);
+    $("#slide1").find('img').fadeIn(0);*/
+    /**
+     * start animation
+     */
+
+    /*$("#slide1").find('img').fadeIn(1000, function() {
+                setTimeout(function() {
+                    $("#slide1").find('img').fadeOut(1000, function(){
+                        $("#slide2").find('img').fadeIn(1000, function(){
+
+                                }
+                        );
+                    });
+                }, 2000);
+            }
+        );*/
+
+    /*var slide1Effect = function(){
+
+    };
+    slide1Effect();
     $("#movie-id").on('load', function() {   
         $('body').css('overflow', 'hidden');
         return false;         
@@ -250,7 +444,7 @@ $(document).ready(function(){
     $msg.css({
         top:$vid.offset().top + (($vid.height()/3) - ($msg.height()/2)),
         left:$vid.offset().left + (($vid.width()/2) - ($msg.width()/2))
-    });
+    });*/
 });
 </script>
 
