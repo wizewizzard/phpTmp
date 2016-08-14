@@ -172,10 +172,10 @@ nav.tabs {
 
     <div class="objectInfo">
         <nav class="inner tabs">
-            <a href="#description" class="active">Описание</a>
-            <a href="#participants">Участники</a>
-            <a href="#tech">Технологии</a>
-            <a href="#project">Проект</a>
+            <a href="#description" class="active">{t}Описание{/t}</a>
+            <a href="#participants">{t}Участники{/t}</a>
+            <a href="#tech">{t}Технологии{/t}</a>
+            <a href="#project">{t}Проект{/t}</a>
         </nav>
         <div class="tabs-content">
             <div rel="#description" class="tab-content show">

@@ -93,10 +93,10 @@ article {
 </style>
 
 <nav class="inner tabs objectMenu">
-    <a href="0">Все</a>
-    <a href="1">Жилые дома</a>
-    <a href="2">Торговые центры</a>
-    <a href="3">Административные здания</a>
+    <a href="0">{t}Все{/t}</a>
+    <a href="1">{t}Жилые дома{/t}</a>
+    <a href="2">{t}Торговые центры{/t}</a>
+    <a href="3">{t}Административные здания{/t}</a>
 </nav>
 <article class="inner" style="margin-bottom: 40px;">
     {assign var=even value=1}

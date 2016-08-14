@@ -8,10 +8,10 @@
 }
 </style>
 <nav class="inner tabs">
-    <a href="#design">Проектирование</a>
-    <a href="#production">Производство</a>
-    <a href="#mount">Монтаж</a>
-    <a href="#manage">Управление проектами</a>
+    <a href="#design">{t}Проектирование{/t}</a>
+    <a href="#production">{t}Производство{/t}</a>
+    <a href="#mount">{t}Монтаж{/t}</a>
+    <a href="#manage">{t}Управление проектами{/t}</a>
 </nav>
 <article class="inner tabs-content">
     {foreach $services as $name => $data}

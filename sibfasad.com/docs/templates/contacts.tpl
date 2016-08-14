@@ -29,24 +29,24 @@ iframe {
         }
 </style>
 <nav class="inner tabs">
-    <a href="#office">Офис</a>
-    <a href="#production">Производство</a>
+    <a href="#office">{t}Офис{/t}</a>
+    <a href="#production">{t}Производство{/t}</a>
 </nav>
 <article class="inner tabs-content">
     <div rel="#office" class="tab-content office">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2286.9740575515534!2d82.911712!3d55.026147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42dfe5d3691ae3f9%3A0x52c3cb06bfcc8f0f!2sul.+Maksima+Gorkogo%2C+24%2C+Novosibirsk%2C+Novosibirskaya+oblast&#39;%2C+630099!5e0!3m2!1sen!2sru!4v1435588978245" width="100%" height="500" frameborder="0" style="border:0"></iframe>
         <div class="inner contacts">
             <div class="cell">
-                Российская Федерация, Новосибирская область, г. Новосибирск,<br />
-                улица Максима Горького, 24
+                {t}Российская Федерация, Новосибирская область, г. Новосибирск{/t},<br />
+                {t}улица Максима Горького, 24{/t}
             </div>
             <div class="cell">
-                Отдел продаж:                 <span class="right">+7 (383) 567 78 87</span><br />
-                Технический отдел:        <span class="right">+7 (383) 678 76 65</span><br />
-                Бухгалтерия:                    <span class="right">+7 (383) 567 85 49</span><br />
+                {t}Отдел продаж{/t}:                 <span class="right">+7 (383) 567 78 87</span><br />
+                {t}Технический отдел{/t}:        <span class="right">+7 (383) 678 76 65</span><br />
+                {t}Бухгалтерия{/t}:                    <span class="right">+7 (383) 567 85 49</span><br />
                 <br />
-                Директор:                          <span class="right">+7 (383) 567 44 56</span><br />
-                Зам. Директора:              <span class="right">+7 (383) 543 67 65</span><br />
+                {t}Директор{/t}:                          <span class="right">+7 (383) 567 44 56</span><br />
+                {t}Зам. Директора{/t}:              <span class="right">+7 (383) 543 67 65</span><br />
                 <br />
                 <br />
                 <a href="mailto:info@sibfasad.com">info@sibfasad.com</a>
@@ -58,16 +58,16 @@ iframe {
 
         <div class="inner contacts">
             <div class="cell">
-                Российская Федерация, Новосибирская область, г. Новосибирск,<br />
-                Пролетарская улица, дом 360
+                {t}Российская Федерация, Новосибирская область, г. Новосибирск{/t},<br />
+                {t}Пролетарская улица, дом 360{/t}
             </div>
             <div class="cell">
-                Отдел продаж:                 <span class="right">+7 (383) 567 78 87</span><br />
-                Технический отдел:        <span class="right">+7 (383) 678 76 65</span><br />
-                Бухгалтерия:                    <span class="right">+7 (383) 567 85 49</span><br />
+                {t}Отдел продаж{/t}:                 <span class="right">+7 (383) 567 78 87</span><br />
+                {t}Технический отдел{/t}:        <span class="right">+7 (383) 678 76 65</span><br />
+                {t}Бухгалтерия{/t}:                    <span class="right">+7 (383) 567 85 49</span><br />
                 <br />
-                Директор:                          <span class="right">+7 (383) 567 44 56</span><br />
-                Зам. Директора:              <span class="right">+7 (383) 543 67 65</span><br />
+                {t}Директор{/t}:                          <span class="right">+7 (383) 567 44 56</span><br />
+                {t}Зам. Директора{/t}:              <span class="right">+7 (383) 543 67 65</span><br />
                 <br />
                 <br />
                 <a href="mailto:info@sibfasad.com">info@sibfasad.com</a>

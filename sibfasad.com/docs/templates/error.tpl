@@ -5,7 +5,7 @@
 font-weight: normal;
 text-align: center;
 color: #51a15c;
-padding: 20px;">Страница не найдена</h1>
+padding: 20px;">{t}Страница не найдена{/t}</h1>
 </div>
 
 {include file="footer.tpl"}

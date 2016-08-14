@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/galleria/themes/classic/galleria.classic.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <script type="text/javascript" src="/js/jquery.prettyPhoto.js"></script>
+    {locale path="../locale" domain="messages"}
 </head>
 <body>
     <div id="decorations">
@@ -36,13 +37,14 @@
                     <i class="flag eng"></i>
                     <nav>
                         <ul>
-                            <li><a href="/about#general">О компании</a></li>
-                            <li><a href="/services">Услуги</a></li>
-                            <li><a href="/objects">Объекты</a></li>
-                            <li><a href="/partners">Партнеры</a></li>
-                            <li><a href="/contacts#office">Контакты</a></li>
+                            <li><a href="/about#general">{t}О компании{/t}</a></li>
+                            <li><a href="/services">{t}Услуги{/t}</a></li>
+                            <li><a href="/objects">{t}Объекты{/t}</a></li>
+                            <li><a href="/partners">{t}Партнеры{/t}</a></li>
+                            <li><a href="/contacts#office">{t}Контакты{/t}</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
+

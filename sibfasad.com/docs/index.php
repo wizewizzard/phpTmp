@@ -25,7 +25,25 @@ if (__DIR__ !== '') {
 define('CONTROLLERS_PATH', ROOT_PATH . '/controllers');
 define('TEMPLATES_PATH', ROOT_PATH . '/templates');
 define('UPLOADS_PATH', ROOT_PATH . '/upload');
+define('PROJECT_DIR', realpath('./'));
+define('LOCALE_DIR', PROJECT_DIR .'/locale');
+define('DEFAULT_VERSION', 'ru');
+require_once(PROJECT_DIR.'/libs/gettext/gettext.inc');
 
+$uriTokens = array_filter(explode('/', $_SERVER['REQUEST_URI']));
+$supported_versions = array(
+    'ru' => ['locale' => 'ru_RU', 'db' => 'sibfasad_db'],
+    'de' => ['locale' => 'de_DE', 'db' => 'sibfasad_db_de']
+);
+$version = $supported_versions[DEFAULT_VERSION];
+$param1 = array_shift($uriTokens);
+
+if(in_array($param1, array_keys($supported_versions))){
+    $version = $supported_versions[$param1];
+    $controllerName = array_shift($uriTokens);
+}
+else $controllerName = $param1;
+T_setlocale(LC_MESSAGES, $version['locale']);
 /*
 * Connect to database
 */
@@ -46,7 +64,7 @@ $dbConfig = [
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '',
-    'db'   => 'sibfasad_db',
+    'db'   => $version['db'],
 ];
 // Connect to database
 $dbLink = mysqli_connect(
@@ -83,10 +101,9 @@ $template->addPluginsDir(ROOT_PATH . '/smarty/custom_plugins/');
 */
 
 // Parse URI
-$uriTokens = array_filter(explode('/', $_SERVER['REQUEST_URI']));
 
 // Catch controller options
-$controllerName = array_shift($uriTokens);
+//$controllerName = array_shift($uriTokens);
 $controllerAction = array_shift($uriTokens);
 
 // Set default controller name and action if need

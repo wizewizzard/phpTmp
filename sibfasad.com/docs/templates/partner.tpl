@@ -223,7 +223,7 @@
     </div>
     {if count($objects) > 0}
     <div class="otherObjects">
-        <h3>Объекты партнера</h3>
+        <h3>{t}Объекты партнера{/t}</h3>
         <ul class="objectSlider">
             <li>
                 {foreach $objects as $id => $data}

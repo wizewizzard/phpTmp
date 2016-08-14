@@ -312,7 +312,7 @@ video {
         {/if}
     {/for}
 
-    <h3>Интервью</h3>
+    <h3>{t}Интервью{/t}</h3>
     <div class="people">
         <ul class="peopleSlider">
             {foreach $interviews as $id => $data}
