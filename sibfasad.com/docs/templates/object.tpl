@@ -154,7 +154,7 @@ nav.tabs {
                 {assign var=count value=0}
                 {/if}
                 {assign var=count value=$count+1}
-                <a href="/objects/view/{$id}" class="hexagon otherObjectHexagon {if $data@first}currentObject{/if}" {if isset($data.photo) && $data.photo != ''}style="background-image: url(/upload/objectPhotos/thumbs/{$data.photo});"{/if}>
+                <a href="{if isset($version)}/{$version}{/if}/objects/view/{$id}" class="hexagon otherObjectHexagon {if $data@first}currentObject{/if}" {if isset($data.photo) && $data.photo != ''}style="background-image: url(/upload/objectPhotos/thumbs/{$data.photo});"{/if}>
                     <div class="hexTop"></div>
                     <div class="hexContent"><h3>{$data.name}</h3></div>
                     <div class="hexBottom"></div>

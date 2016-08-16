@@ -119,15 +119,17 @@ header {
                 width: 22px;
                 height: 16px;
                 vertical-align: top;
-                background: url('/images/flags.png');
+                background: url('/images/flags2.png');
                 cursor: pointer;
+                background-size: cover;
+                background-repeat: no-repeat;
             }
                 header .flag.rus {
                     background-position: 0 0;
-                    margin-right:22px;
+                    margin-right:31px;
                 }
-                header .flag.eng {
-                    background-position: -21px 0;
+                header .flag.deu {
+                    background-position: -23px 0;
                 }
             header nav {
                 display: inline-block;

@@ -150,7 +150,7 @@ article {
             {else}
                 {$class='gray'}
             {/if}
-            <a href="{$hexagonsText[$i].link}" class="hexagon textHexagon {$class}" data-category="{if isset($hexagonsText[$i].category) && $hexagonsText[$i].category != ''}{$hexagonsText[$i].category}{/if}">
+            <a href="{if isset($version)}/{$version}{/if}{$hexagonsText[$i].link}" class="hexagon textHexagon {$class}" data-category="{if isset($hexagonsText[$i].category) && $hexagonsText[$i].category != ''}{$hexagonsText[$i].category}{/if}">
                 <div class="hexTop"></div>
                 <div class="hexContent">
                     <div>{$hexagonsText[$i].brief_info}</div>

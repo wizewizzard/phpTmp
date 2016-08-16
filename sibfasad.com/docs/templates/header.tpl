@@ -33,15 +33,15 @@
             <div class="inner">
                 <div class="head-content">
                     <a href="/" class="head-logo"></a>
-                    <i class="flag rus"></i>
-                    <i class="flag eng"></i>
+                    <a href="/" class="flag rus"></a>
+                    <a href="/de" class="flag deu"></a>
                     <nav>
                         <ul>
-                            <li><a href="/about#general">{t}О компании{/t}</a></li>
-                            <li><a href="/services">{t}Услуги{/t}</a></li>
-                            <li><a href="/objects">{t}Объекты{/t}</a></li>
-                            <li><a href="/partners">{t}Партнеры{/t}</a></li>
-                            <li><a href="/contacts#office">{t}Контакты{/t}</a></li>
+                            <li><a href="{if isset($version)}/{$version}{/if}/about#general">{t}О компании{/t}</a></li>
+                            <li><a href="{if isset($version)}/{$version}{/if}/services">{t}Услуги{/t}</a></li>
+                            <li><a href="{if isset($version)}/{$version}{/if}/objects">{t}Объекты{/t}</a></li>
+                            <li><a href="{if isset($version)}/{$version}{/if}/partners">{t}Партнеры{/t}</a></li>
+                            <li><a href="{if isset($version)}/{$version}{/if}/contacts#office">{t}Контакты{/t}</a></li>
                         </ul>
                     </nav>
                 </div>

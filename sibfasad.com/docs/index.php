@@ -35,15 +35,15 @@ $supported_versions = array(
     'ru' => ['locale' => 'ru_RU', 'db' => 'sibfasad_db'],
     'de' => ['locale' => 'de_DE', 'db' => 'sibfasad_db_de']
 );
-$version = $supported_versions[DEFAULT_VERSION];
+$version = DEFAULT_VERSION;
 $param1 = array_shift($uriTokens);
 
 if(in_array($param1, array_keys($supported_versions))){
-    $version = $supported_versions[$param1];
+    $version = $param1;
     $controllerName = array_shift($uriTokens);
 }
 else $controllerName = $param1;
-T_setlocale(LC_MESSAGES, $version['locale']);
+T_setlocale(LC_MESSAGES, $supported_versions[$version]['locale']);
 /*
 * Connect to database
 */
@@ -64,7 +64,7 @@ $dbConfig = [
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '',
-    'db'   => $version['db'],
+    'db'   => $supported_versions[$version]['db'],
 ];
 // Connect to database
 $dbLink = mysqli_connect(
@@ -95,7 +95,8 @@ require(ROOT_PATH . '/smarty/Smarty.class.php');
 $template = new Smarty();
 $template->setTemplateDir(TEMPLATES_PATH);
 $template->addPluginsDir(ROOT_PATH . '/smarty/custom_plugins/');
-
+if($version != DEFAULT_VERSION)
+$template->assign('version', $version);
 /*
 * Router O_o
 */

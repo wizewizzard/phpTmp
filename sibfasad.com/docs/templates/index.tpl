@@ -298,7 +298,7 @@ video {
             {else}
                 {$class='gray'}
             {/if}
-            <a href="{$hexagonsText[$i].link}" class="hexagon textHexagon {$class}">
+            <a href="{if isset($version)}/{$version}{/if}{$hexagonsText[$i].link}" class="hexagon textHexagon {$class}">
                 <div class="hexTop"></div>
                 <div class="hexContent">
                     <div>{$hexagonsText[$i].brief_info}</div>
@@ -328,7 +328,7 @@ video {
                         <p>
                             {$data.description|truncate:450:"..."}
                         </p>
-                        <a href="/partners/view/{$id}" class="readMore">
+                        <a href="{if isset($version)}/{$version}{/if}/partners/view/{$id}" class="readMore">
                             Читать всё интервью
                         </a>
                     </div>

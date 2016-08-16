@@ -87,7 +87,7 @@ div.bx-controls.bx-has-pager.bx-has-controls-direction {
                 {assign var=count value=0}
                 {foreach $employees as $id => $data}
                     {assign var=count value=$count+1}
-                    <a href="/about/employee/{$id}">
+                    <a href="{if isset($version)}/{$version}{/if}/about/employee/{$id}">
                         <div class="hexagon" style="background-{if $data.photo != ''}image: url('/upload/employeesPhotos/{$data.photo}'){else}color: #8dc63f{/if};">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>

@@ -135,7 +135,7 @@
 <article class="inner">
     <div class="partners">
         <div class="column left">
-            <a href="/about#employees" class="back">Назад</a>
+            <a href="{if isset($version)}/{$version}{/if}/about#employees" class="back">Назад</a>
             <div class="hexagon-partner" style="background-{if $employee.photo != ''}image: url('/upload/employeesPhotos/{$employee.photo}'){else}color: #8dc63f{/if};">
                 <div class="hexTop"></div>
                 <div class="hexBottom"></div>
